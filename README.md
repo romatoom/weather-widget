@@ -1,3 +1,7 @@
+
+<img width="412" alt="screenshot2" src="https://github.com/romatoom/weather-widget/assets/20795373/7c069328-d96c-4d00-944e-49dd75fb318b">
+<img width="653" alt="screenshot1" src="https://github.com/romatoom/weather-widget/assets/20795373/2e1dabd1-8200-4b48-8f72-613b74913014">
+
 ## Установка
 
 Переименуйте файл .env.example в .env
