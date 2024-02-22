@@ -1,20 +1,19 @@
 <template>
-  <div v-if="props.weatherForecast" class="weather-forecast">
-    <div v-dragscroll.x class="weather-items grabbable">
-      <div
-        class="item"
-        v-for="weatherItem in props.weatherForecast"
-        :key="weatherItem.dt"
-      >
-        <span class="time">{{ weatherItem.date }}</span>
-        <div class="weather-icon">
-          <NuxtImg class="content" :src="weatherItem.iconURL" />
-        </div>
-        <span class="temp">{{ weatherItem.temp }}</span>
+  <div v-dragscroll.x class="weather-items grabbable">
+    <div
+      class="item"
+      v-for="weatherItem in props.weatherForecast"
+      :key="weatherItem.dt"
+    >
+      <span class="time">{{ weatherItem.date }}</span>
+      <div class="weather-icon">
+        <NuxtImg class="content" :src="weatherItem.iconURL" />
       </div>
+      <span class="temp">{{ weatherItem.temp }}</span>
     </div>
   </div>
-  <div class="weather-forecast flex-block center" v-else>Нет данных</div>
+
+  <!--<div class="weather-forecast flex-block center" v-else>Ошибка при получении данных</div>-->
 </template>
 
 <script setup>
@@ -33,10 +32,6 @@ export default {
 </script>
 
 <style lang="scss">
-.weather-forecast {
-  height: 50px;
-}
-
 .weather-items {
   display: flex;
   flex-direction: row;

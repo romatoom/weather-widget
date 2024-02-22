@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-if="props.weatherToday"
-    class="weather-today flex-block vertical large-gap align-left"
-  >
+  <div class="flex-block vertical large-gap align-left">
     <span class="bolder">Погода на сегодня</span>
 
     <div class="flex-block large-gap">
@@ -12,7 +9,7 @@
         <NuxtImg class="content" :src="iconURL" />
       </div>
 
-      <div class="flex-block vertical align-left small-text">
+      <div class="flex-block vertical align-left text-small">
         <div class="first-upper bolder mb-3">{{ description }}</div>
         <div>
           Ощущается как
@@ -37,9 +34,6 @@
         <span class="value">{{ pressure }} мм рт. ст.</span>
       </div>
     </div>
-  </div>
-  <div class="weather-today weather-forecast flex-block center" v-else>
-    Нет данных
   </div>
 </template>
 
@@ -108,16 +102,6 @@ const {
   & .content {
     width: 70px;
     height: 70px;
-  }
-}
-
-.weather-today {
-  height: 128px;
-
-  & .feels-like {
-    &.span {
-      font-weight: 400;
-    }
   }
 }
 </style>

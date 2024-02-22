@@ -15,9 +15,8 @@ export default defineEventHandler(async (event) => {
     },
   };
 
-  let data;
   try {
-    data = await $fetch(`${API_URL}/weather`, options);
+    var data = await $fetch(`${API_URL}/weather`, options);
   } catch (err) {
     console.log("err:", err);
     return [];

@@ -16,12 +16,11 @@ export default defineEventHandler(async (event) => {
     },
   };
 
-  let data;
   try {
-    data = await $fetch(`${API_URL}/forecast`, options);
+    var data = await $fetch(`${API_URL}/forecast`, options);
   } catch (err) {
     console.log("err:", err);
-    return [];
+    return null;
   }
 
   return data;

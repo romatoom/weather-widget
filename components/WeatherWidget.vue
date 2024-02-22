@@ -4,13 +4,33 @@
     <transition name="fade">
       <div v-if="!weatherStore.loading">
         <CityChanger />
-        <WeatherForToday
-          :weatherToday="weatherStore.weatherToday"
-        ></WeatherForToday>
+
+        <div class="weather-today">
+          <WeatherForToday
+            v-if="weatherStore.weatherToday"
+            :weatherToday="weatherStore.weatherToday"
+          ></WeatherForToday>
+          <div v-else class="flex-block center full-height text-center">
+            <span class="max-width-250px"
+              >Ошибка при получении данных о текущей погоде</span
+            >
+          </div>
+        </div>
+
         <Divider class="opacity-70" />
-        <WeatherForecast
-          :weatherForecast="weatherStore.weatherForecast"
-        ></WeatherForecast>
+
+        <div class="weather-forecast">
+          <WeatherForecast
+            v-if="weatherStore.weatherForecast"
+            :weatherForecast="weatherStore.weatherForecast"
+          ></WeatherForecast>
+
+          <div v-else class="flex-block center full-height text-center">
+            <span class="max-width-250px"
+              >Ошибка при получении прогноза на несколько дней</span
+            >
+          </div>
+        </div>
       </div>
     </transition>
 
@@ -49,6 +69,7 @@ const cityStore = useCityStore();
 const weatherStore = useWeatherStore();
 
 const isNight = computed(() => weatherStore.weatherToday?.isNight);
+const initialQuery = "Москва";
 
 watch(
   () => cityStore.currentCity,
@@ -65,7 +86,7 @@ watch(
 );
 
 onMounted(async () => {
-  await cityStore.fetchCities("Тюмень");
+  await cityStore.fetchCities(initialQuery);
   cityStore.setCurrentCity(cityStore.citiesList[0]);
 });
 </script>
@@ -80,6 +101,7 @@ onMounted(async () => {
   color: var(--dark);
   background-color: var(--light);
   max-width: 400px;
+  width: 400px;
   height: 265px;
   border-radius: 12px;
   border: 1px solid var(--gray-light);
@@ -89,6 +111,20 @@ onMounted(async () => {
     background-color: var(--dark);
     border-color: var(--dark);
     color: white;
+  }
+}
+
+.weather-forecast {
+  height: 60px;
+}
+
+.weather-today {
+  height: 128px;
+
+  & .feels-like {
+    &.span {
+      font-weight: 400;
+    }
   }
 }
 
