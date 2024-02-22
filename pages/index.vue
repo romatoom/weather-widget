@@ -1,5 +1,5 @@
 <template>
-  <WeatherWidget></WeatherWidget>
+  <WeatherWidget :days="3"></WeatherWidget>
 </template>
 
 <script>

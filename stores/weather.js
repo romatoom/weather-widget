@@ -44,7 +44,7 @@ export const useWeatherStore = defineStore("weather", {
       }
     },
 
-    async fetchWeatherForecast({ lat, lon }) {
+    async fetchWeatherForecast({ lat, lon, cnt }) {
       this.loadingWeatherForecast = true;
 
       try {
@@ -53,6 +53,7 @@ export const useWeatherStore = defineStore("weather", {
           query: {
             lat,
             lon,
+            cnt,
           },
         });
 

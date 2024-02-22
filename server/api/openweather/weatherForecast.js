@@ -12,7 +12,6 @@ export default defineEventHandler(async (event) => {
       appid: apiKey,
       units: "metric",
       lang: "ru",
-      cnt: 24,
     },
   };
 

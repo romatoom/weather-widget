@@ -19,9 +19,9 @@
 <script setup>
 const props = defineProps({
   weatherForecast: {
-    type: [Object, null],
+    type: Object,
     required: true,
-  },
+  }
 });
 </script>
 

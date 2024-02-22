@@ -59,6 +59,13 @@ export default {
 <script setup>
 import { ref, watch, onMounted } from "vue";
 
+const props = defineProps({
+  days: {
+    type: Number,
+    default: 3,
+  },
+});
+
 const show = ref(true);
 
 const toggle = () => {
@@ -70,6 +77,7 @@ const weatherStore = useWeatherStore();
 
 const isNight = computed(() => weatherStore.weatherToday?.isNight);
 const initialQuery = "Москва";
+const COUNT_IN_DAY = 8;
 
 watch(
   () => cityStore.currentCity,
@@ -79,6 +87,7 @@ watch(
       weatherStore.fetchWeatherForecast({
         lat: newValue.lat,
         lon: newValue.lon,
+        cnt: COUNT_IN_DAY * props.days,
       }),
     ]);
   },

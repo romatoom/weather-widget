@@ -50,7 +50,7 @@ import IconWind from "@/assets/icons/icon-wind.svg";
 
 const props = defineProps({
   weatherToday: {
-    type: [Object],
+    type: Object,
     required: true,
   },
 });
