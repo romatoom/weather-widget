@@ -1,4 +1,4 @@
-import uniqWith from "lodash/uniqWith";
+import uniqWith from "lodash/uniqWith.js";
 
 import { API_URL } from "./settings.js";
 

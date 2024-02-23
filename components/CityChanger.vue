@@ -11,7 +11,8 @@
       v-model="value"
       :suggestions="cityStore.citiesList"
       optionLabel="label"
-      placeholder="Введите город"
+      placeholder="Введите название города"
+      emptySearchMessage="Город не найден"
       :delay="300"
       @complete="search"
       @item-select="select"
@@ -72,5 +73,9 @@ const select = (event) => {
 .icon-location {
   width: 12px;
   height: 12px;
+}
+
+.p-autocomplete-input {
+  width: 230px;
 }
 </style>
